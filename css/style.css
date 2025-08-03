@@ -755,3 +755,54 @@ section {
 .btn-resume {
     text-decoration: none;
 }
+
+
+/* Thank You Page Styles */
+.thank-you {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.thank-you-content i {
+    font-size: 5rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    animation: bounce 1s ease infinite alternate;
+}
+
+.thank-you h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.thank-you p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--text-secondary);
+}
+
+.thank-you-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .thank-you-buttons {
+        flex-direction: column;
+    }
+    
+    .thank-you h1 {
+        font-size: 2.5rem;
+    }
+}
