@@ -1,0 +1,122 @@
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animations to sections */
+.hero-content, 
+.hero-image,
+.about-content > *,
+.skills-grid,
+.projects-grid,
+.achievements-grid,
+.contact-content > * {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Delay animations for staggered effect */
+.hero-content {
+    animation-delay: 0.2s;
+}
+
+.hero-image {
+    animation-delay: 0.4s;
+}
+
+.about-text {
+    animation-delay: 0.2s;
+}
+
+.about-skills {
+    animation-delay: 0.4s;
+}
+
+/* Skills grid items */
+.skill-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skill-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skill-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skill-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.skill-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.skill-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Projects grid items */
+.project-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.project-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Button hover effects */
+.btn-primary, 
+.btn-secondary,
+.btn-details,
+.btn-code,
+.btn-certificate,
+.btn-resume,
+.resume-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before,
+.btn-secondary::before,
+.btn-details::before,
+.btn-code::before,
+.btn-certificate::before,
+.btn-resume::before,
+.resume-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(100, 255, 218, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before,
+.btn-details:hover::before,
+.btn-code:hover::before,
+.btn-certificate:hover::before,
+.btn-resume:hover::before,
+.resume-btn:hover::before {
+    width: 100%;
+}
