@@ -34,7 +34,7 @@ body {
 }
 
 section {
-    padding: 100px 0;
+    padding:50px 0;
 }
 
 .section-title {
@@ -105,6 +105,22 @@ section {
     background-color: transparent;
     color: var(--secondary-color);
 }
+
+.btn-source-code {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 14px 28px; /* Match btn-secondary */
+    font-size: 1rem;     /* Match btn-secondary */
+    text-decoration: none;
+    border: 1px solid var(--secondary-color); /* Match border */
+    border-radius: 6px;  /* Match btn-secondary */
+}
+
+.btn-source-code:hover {
+    background-color: transparent;
+    color: var(--secondary-color);
+}
+
 
 .btn-code {
     background-color: transparent;
@@ -265,7 +281,11 @@ section {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 80px
+    padding-top: 60px;
+    padding: 60px 0 0px;
+    margin-bottom: 0;
+
+
 }
 
 .hero .container {
@@ -509,10 +529,40 @@ section {
     transform: translateY(-10px);
 }
 
-.achievement-icon {
-    font-size: 2rem;
-    color: var(--secondary-color);
+/* Achievements Section */
+.achievement-visual {
+    position: relative;
+    width: 80px;  /* Increased from 60px */
+    height: 80px; /* Increased from 60px */
+    margin: 0 auto 20px;
 }
+
+.achievement-shield {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.achievement-shield:hover {
+    transform: scale(1.05);
+}
+
+.achievement-icon {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    font-size: 1.5rem; /* Slightly larger icon */
+    color: var(--secondary-color);
+    background: var(--card-bg);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
+}
+
+/* Existing achievement card styles remain the same */
+
 
 .achievement-content h3 {
     font-size: 1.3rem;
@@ -806,3 +856,62 @@ section {
         font-size: 2.5rem;
     }
 }
+
+
+/* Legal Document Styling */
+.legal-doc {
+    padding: 80px 0;
+    color: var(--text-color);
+}
+
+.legal-doc h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+.effective-date {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.legal-section {
+    margin-bottom: 40px;
+}
+
+.legal-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.legal-section p, .legal-section li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.legal-section ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.legal-section a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .legal-doc {
+        padding: 60px 0;
+    }
+    
+    .legal-doc h1 {
+        font-size: 2rem;
+    }
+}
+
