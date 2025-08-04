@@ -86,8 +86,10 @@
 .btn-details,
 .btn-code,
 .btn-certificate,
+.btn-submit,
 .btn-resume,
-.resume-btn {
+.resume-btn,
+.btn-source-code {
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -99,7 +101,9 @@
 .btn-code::before,
 .btn-certificate::before,
 .btn-resume::before,
-.resume-btn::before {
+.resume-btn::before,
+.btn-submit::before,
+.btn-source-code::before {
     content: '';
     position: absolute;
     top: 0;
@@ -117,6 +121,8 @@
 .btn-code:hover::before,
 .btn-certificate:hover::before,
 .btn-resume:hover::before,
-.resume-btn:hover::before {
+.resume-btn:hover::before,
+.btn-submit:hover::before,
+.btn-source-code:hover::before {
     width: 100%;
 }
