@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthLab Project | Haris Bin Nasir</title>
+    <title>Dizzables App | Haris Bin Nasir</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -37,61 +37,62 @@
         </div>
     </nav>
 
-    <!-- Project Details -->
     <section class="project-details">
         <div class="container">
             <div class="project-header">
                 <div class="logo-glow-container">
-                    <img src="../images/healthlab-logo.png" alt="HealthLab Logo" class="project-main-logo">
+                    <img src="../images/dizzables-logo.png" alt="Dizzables Logo" class="project-main-logo">
                 </div>
-                <h1>HealthLab</h1>
-                <p class="project-subtitle">Smart Health Monitoring System</p>
+                <h1>Dizzables</h1>
+                <p class="project-subtitle">Sign Language Translation App</p>
             </div>
 
             <div class="project-gallery">
-                <img src="../images/healthlab-screenshot1.jpg" alt="HealthLab Dashboard">
-                <img src="../images/healthlab-screenshot2.jpg" alt="Health Monitoring">
+                <img src="../images/dizzables-screenshot1.jpg" alt="Dizzables App Interface">
+                <img src="../images/dizzables-screenshot2.jpg" alt="Dizzables Gesture Recognition">
             </div>
 
             <div class="project-overview">
                 <h2><i class="fas fa-mobile-alt"></i> App Overview</h2>
-                <p>HealthLab revolutionizes personal healthcare by providing real-time vital monitoring through wearable integration, telehealth capabilities, and comprehensive health analytics in one unified platform.</p>
+                <p>Dizzables is a Flutter application designed to bridge communication gaps by translating sign language
+                    gestures in real-time through connected smart gloves. The app provides visual feedback and maintains
+                    a history of translated gestures.</p>
             </div>
-            
+
             <div class="feature-section">
                 <h2><i class="fas fa-star"></i> Key Features</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-heartbeat"></i>
+                            <i class="fas fa-bluetooth-b"></i>
                         </div>
-                        <h3>Real-time Monitoring</h3>
+                        <h3>Bluetooth Integration</h3>
                         <ul>
-                            <li>Continuous vital sign tracking</li>
-                            <li>Wearable device integration</li>
-                            <li>Abnormal reading alerts</li>
+                            <li>Seamless pairing with smart gloves</li>
+                            <li>Low-energy continuous connection</li>
+                            <li>Real-time data streaming</li>
                         </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                            <i class="fas fa-hands"></i>
                         </div>
-                        <h3>Telehealth</h3>
+                        <h3>Gesture Translation</h3>
                         <ul>
-                            <li>Video consultations</li>
-                            <li>Secure messaging</li>
-                            <li>Prescription management</li>
+                            <li>100+ ASL gestures supported</li>
+                            <li>Animated visual feedback</li>
+                            <li>Translation accuracy indicator</li>
                         </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-history"></i>
                         </div>
-                        <h3>Health Analytics</h3>
+                        <h3>Gesture History</h3>
                         <ul>
-                            <li>Interactive data visualization</li>
-                            <li>Trend analysis</li>
-                            <li>Exportable health reports</li>
+                            <li>Timeline of recent translations</li>
+                            <li>Searchable gesture database</li>
+                            <li>Export conversation history</li>
                         </ul>
                     </div>
                 </div>
@@ -99,37 +100,37 @@
 
             <div class="technical-details">
                 <h2><i class="fas fa-code"></i> Technical Implementation</h2>
-                
+
                 <div class="tech-card">
-                    <h3>Frontend Architecture</h3>
+                    <h3>Bluetooth Architecture</h3>
                     <ul>
-                        <li>Built with Flutter for cross-platform compatibility</li>
-                        <li>Custom UI components for medical data display</li>
-                        <li>Accessibility compliant design</li>
+                        <li>Implemented using flutter_blue_plus package</li>
+                        <li>Custom protocol for efficient data transmission</li>
+                        <li>Auto-reconnection logic</li>
                     </ul>
                 </div>
 
                 <div class="tech-card">
-                    <h3>Backend Services</h3>
+                    <h3>User Interface</h3>
                     <ul>
-                        <li>Supabase for realtime database</li>
-                        <li>Row-level security for HIPAA compliance</li>
-                        <li>Optimized WebRTC for telehealth</li>
+                        <li>Custom gesture animations using Rive</li>
+                        <li>Dark/light mode support</li>
+                        <li>WCAG 2.1 compliant accessibility</li>
                     </ul>
                 </div>
 
                 <div class="tech-card">
-                    <h3>Device Integration</h3>
+                    <h3>Data Management</h3>
                     <ul>
-                        <li>Bluetooth LE for wearable connection</li>
-                        <li>Unified data protocol for multiple devices</li>
-                        <li>Battery optimization techniques</li>
+                        <li>Local storage using Hive</li>
+                        <li>Cloud sync via Firebase</li>
+                        <li>Gesture recognition algorithms</li>
                     </ul>
                 </div>
             </div>
 
             <div class="project-links">
-                <a href="https://github.com/hbnasir23/healthlab_project" class="btn-primary" target="_blank">
+                <a href="https://github.com/hbnasir23/dizzables" class="btn-primary" target="_blank">
                     <i class="fab fa-github"></i> View Source Code
                 </a>
                 <a href="../index.html#projects" class="btn-secondary">
@@ -139,6 +140,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -160,8 +162,8 @@
                 <div class="footer-legal">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="../terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
@@ -173,4 +175,5 @@
 
     <script src="../js/script.js"></script>
 </body>
+
 </html>
