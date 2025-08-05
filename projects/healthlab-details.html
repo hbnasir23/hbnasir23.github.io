@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthLab Project Details | Haris Bin Nasir</title>
+    <title>HealthLab Project | Haris Bin Nasir</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -38,105 +40,105 @@
     <!-- Project Details -->
     <section class="project-details">
         <div class="container">
-            <h1 class="project-title">HealthLab – Smart Health App</h1>
-            <div class="project-meta">
-                <span class="project-date">2023</span>
-                <span class="project-tags">
-                    <span>Flutter</span>
-                    <span>Dart</span>
-                    <span>Supabase</span>
-                    <span>PostgreSQL</span>
-                </span>
+            <div class="project-header">
+                <div class="logo-glow-container">
+                    <img src="../images/healthlab-logo.png" alt="HealthLab Logo" class="project-main-logo">
+                </div>
+                <h1>HealthLab</h1>
+                <p class="project-subtitle">Smart Health Monitoring System</p>
             </div>
-            
+
             <div class="project-gallery">
-                <div class="main-image">
-                    <img src="../images/healthlab-screenshot.jpg" alt="HealthLab App Screenshot">
-                </div>
-                <div class="thumbnail-images">
-                    <img src="../images/healthlab-screenshot2.jpg" alt="HealthLab Screenshot 2">
-                    <img src="../images/healthlab-screenshot3.jpg" alt="HealthLab Screenshot 3">
-                    <img src="../images/healthlab-screenshot4.jpg" alt="HealthLab Screenshot 4">
-                </div>
+                <img src="../images/healthlab-screenshot1.jpg" alt="HealthLab Dashboard">
+                <img src="../images/healthlab-screenshot2.jpg" alt="Health Monitoring">
+            </div>
+
+            <div class="project-overview">
+                <h2><i class="fas fa-mobile-alt"></i> App Overview</h2>
+                <p>HealthLab revolutionizes personal healthcare by providing real-time vital monitoring through wearable integration, telehealth capabilities, and comprehensive health analytics in one unified platform.</p>
             </div>
             
-            <div class="project-content">
-                <div class="project-overview">
-                    <h2>Project Overview</h2>
-                    <p>HealthLab is a comprehensive health monitoring application designed to integrate with wearable bands for real-time vital tracking. The app provides role-based dashboards for patients, doctors, and administrators, offering a complete healthcare ecosystem in one platform.</p>
+            <div class="feature-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Real-time Monitoring</h3>
+                        <ul>
+                            <li>Continuous vital sign tracking</li>
+                            <li>Wearable device integration</li>
+                            <li>Abnormal reading alerts</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Telehealth</h3>
+                        <ul>
+                            <li>Video consultations</li>
+                            <li>Secure messaging</li>
+                            <li>Prescription management</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Health Analytics</h3>
+                        <ul>
+                            <li>Interactive data visualization</li>
+                            <li>Trend analysis</li>
+                            <li>Exportable health reports</li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+
+            <div class="technical-details">
+                <h2><i class="fas fa-code"></i> Technical Implementation</h2>
                 
-                <div class="project-features">
-                    <h2>Key Features</h2>
+                <div class="tech-card">
+                    <h3>Frontend Architecture</h3>
                     <ul>
-                        <li>Real-time vitals monitoring from wearable devices</li>
-                        <li>Role-based dashboards (Patient, Doctor, Admin)</li>
-                        <li>Telehealth functionality with video consultations</li>
-                        <li>Appointment booking system with calendar integration</li>
-                        <li>Pharmacy module for medication tracking</li>
-                        <li>Health data visualization with charts and trends</li>
-                        <li>Emergency alert system for critical health events</li>
+                        <li>Built with Flutter for cross-platform compatibility</li>
+                        <li>Custom UI components for medical data display</li>
+                        <li>Accessibility compliant design</li>
                     </ul>
                 </div>
-                
-                <div class="project-technologies">
-                    <h2>Technologies Used</h2>
-                    <div class="tech-stack">
-                        <div class="tech-item">
-                            <h3>Frontend</h3>
-                            <ul>
-                                <li>Flutter Framework</li>
-                                <li>Dart Programming Language</li>
-                                <li>Provider State Management</li>
-                                <li>Custom UI Components</li>
-                            </ul>
-                        </div>
-                        <div class="tech-item">
-                            <h3>Backend</h3>
-                            <ul>
-                                <li>Supabase Authentication</li>
-                                <li>PostgreSQL Database</li>
-                                <li>Supabase Realtime API</li>
-                                <li>RESTful API Integration</li>
-                            </ul>
-                        </div>
-                        <div class="tech-item">
-                            <h3>Other Technologies</h3>
-                            <ul>
-                                <li>Firebase Cloud Messaging</li>
-                                <li>WebRTC for Video Calls</li>
-                                <li>Chart.js for Data Visualization</li>
-                                <li>Google Maps API</li>
-                            </ul>
-                        </div>
-                    </div>
+
+                <div class="tech-card">
+                    <h3>Backend Services</h3>
+                    <ul>
+                        <li>Supabase for realtime database</li>
+                        <li>Row-level security for HIPAA compliance</li>
+                        <li>Optimized WebRTC for telehealth</li>
+                    </ul>
                 </div>
-                
-                <div class="project-challenges">
-                    <h2>Challenges & Solutions</h2>
-                    <div class="challenge">
-                        <h3>Real-time Data Synchronization</h3>
-                        <p>Ensuring seamless real-time updates across all devices was challenging. Implemented Supabase's realtime subscriptions to listen for database changes and update the UI accordingly.</p>
-                    </div>
-                    <div class="challenge">
-                        <h3>Wearable Device Integration</h3>
-                        <p>Different wearable brands had varying communication protocols. Created a modular architecture with adapters for each device type, with Bluetooth Low Energy as the common interface.</p>
-                    </div>
-                    <div class="challenge">
-                        <h3>Role-based Access Control</h3>
-                        <p>Managing different user roles with appropriate permissions required careful planning. Implemented row-level security in PostgreSQL and role checks at both client and server levels.</p>
-                    </div>
+
+                <div class="tech-card">
+                    <h3>Device Integration</h3>
+                    <ul>
+                        <li>Bluetooth LE for wearable connection</li>
+                        <li>Unified data protocol for multiple devices</li>
+                        <li>Battery optimization techniques</li>
+                    </ul>
                 </div>
-                
-                <div class="project-links">
-                    <a href="https://github.com/yourprofile/healthlab" class="btn-source-code" target="_blank">View Source Code</a>
-                    <a href="../index.html#projects" class="btn-secondary">Back to Projects</a>
-                </div>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/hbnasir23/healthlab_project" class="btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> View Source Code
+                </a>
+                <a href="../index.html#projects" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -158,8 +160,8 @@
                 <div class="footer-legal">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-of-use.html">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
