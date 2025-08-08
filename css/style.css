@@ -181,6 +181,8 @@ section {
 /* Navigation */
 .navbar {
     position: fixed;
+        height: 80px;
+
     top: 0;
     left: 0;
     width: 100%;
@@ -1394,5 +1396,91 @@ button[disabled] {
         box-shadow: 
             0 0 25px rgba(100, 255, 218, 0.4),
             0 0 45px rgba(100, 255, 218, 0.3);
+    }
+}
+
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    /* Hide desktop navigation by default on mobile */
+    .nav-links,
+    .social-icons {
+        display: none;
+    }
+    
+    /* Show hamburger on mobile */
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    /* Style for active mobile menu */
+    .nav-links.active,
+    .social-icons.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px; /* Height of your navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        gap: 15px;
+        padding-top: 30px;
+    }
+    
+    .social-icons.active {
+        margin-top: 20px;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    
+    /* No scroll when menu is open */
+    body.no-scroll {
+        overflow: hidden;
+    }
+    
+    /* Adjust navbar padding on mobile */
+    .navbar {
+        padding: 15px 0;
+    }
+}
+
+/* Hamburger Animation (keep this exactly as is) */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--text-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
 }
