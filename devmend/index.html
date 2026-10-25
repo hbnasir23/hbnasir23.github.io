@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMend | Website fixes, apps &amp; automation</title>
+    <meta name="description"
+        content="DevMend fixes slow and broken websites, builds new sites and mobile apps, and automates repetitive work for small businesses. Fixed prices, pay once you've seen the result.">
+    <meta property="og:title" content="DevMend | Website fixes, apps & automation">
+    <meta property="og:description" content="Slow or broken website? We fix it. Fixed prices, pay once you've seen the result.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f3d3a'/><path d='M9 10h6a6 6 0 0 1 0 12H9z' fill='none' stroke='%23e9b44c' stroke-width='3'/></svg>">
+    <style>
+        :root {
+            --bg: #f7f4ec;
+            --surface: #ffffff;
+            --ink: #102422;
+            --ink-2: #4b5b59;
+            --ink-3: #7d8a88;
+            --line: #e3ddd0;
+            --brand: #0f3d3a;
+            --brand-2: #175c56;
+            --accent: #e9b44c;
+            --accent-soft: #f7e7c2;
+            --band: #0f3d3a;
+            --radius: 16px;
+            --max: 1100px;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1716;
+                --surface: #13201f;
+                --ink: #eef3f2;
+                --ink-2: #b2c0be;
+                --ink-3: #82918f;
+                --line: #23312f;
+                --brand: #e9b44c;
+                --brand-2: #f0c66e;
+                --accent: #e9b44c;
+                --accent-soft: #2c2716;
+                --band: #163a36;
+                color-scheme: dark;
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+        body { background: var(--bg); color: var(--ink); font: 16px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; }
+        h1, h2, h3, .logo { font-family: "Sora", "Inter", sans-serif; letter-spacing: -.02em; line-height: 1.15; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+        section { padding: 96px 0; }
+        .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-2); margin-bottom: 12px; }
+        .head { max-width: 620px; margin-bottom: 48px; }
+        .head h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 12px; }
+        .head p { color: var(--ink-2); font-size: 18px; }
+
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .15s ease; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-main { background: var(--brand); color: var(--bg); }
+        .btn-accent { background: var(--accent); color: #102422; }
+        .btn-ghost { border-color: var(--line); background: var(--surface); }
+
+        /* Nav */
+        .nav { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+        .nav .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; }
+        .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--band); display: grid; place-items: center; }
+        .logo-mark svg { width: 18px; height: 18px; }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { text-decoration: none; color: var(--ink-2); font-weight: 500; font-size: 15px; }
+        .nav-links a:hover { color: var(--ink); }
+        .nav .btn { padding: 10px 18px; font-size: 14px; }
+
+        /* Hero */
+        .hero { padding: 88px 0 80px; }
+        .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+        .pill { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); font-size: 14px; font-weight: 500; margin-bottom: 22px; }
+        .hero h1 { font-size: clamp(38px, 5.4vw, 62px); margin-bottom: 22px; }
+        .hero h1 span { color: var(--brand-2); }
+        .hero p { font-size: 19px; color: var(--ink-2); max-width: 540px; margin-bottom: 32px; }
+        .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .check-card { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 28px; box-shadow: 0 10px 40px rgba(16, 36, 34, .08); }
+        .check-card h3 { font-size: 20px; margin-bottom: 6px; }
+        .check-card > p { color: var(--ink-2); font-size: 15px; margin-bottom: 18px; }
+        .meter { display: grid; grid-template-columns: 1fr auto; gap: 10px 14px; align-items: center; font-size: 14px; margin-bottom: 18px; }
+        .bar { height: 10px; border-radius: 99px; background: var(--line); overflow: hidden; }
+        .bar i { display: block; height: 100%; border-radius: 99px; }
+        .meter b { font-family: "Sora", sans-serif; }
+        .check-card form { display: flex; gap: 8px; }
+        .check-card input { flex: 1; min-width: 0; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+        .check-card input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+        .check-card small { display: block; color: var(--ink-3); margin-top: 10px; font-size: 13px; }
+
+        /* Promise strip */
+        .promise { background: var(--band); color: #f7f4ec; padding: 26px 0; }
+        .promise ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; }
+        .promise li { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .promise i { color: var(--accent); }
+
+        /* Services */
+        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .svc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 22px; display: flex; flex-direction: column; }
+        .svc .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); display: grid; place-items: center; margin-bottom: 18px; color: var(--ink); }
+        .svc h3 { font-size: 19px; margin-bottom: 8px; }
+        .svc p { color: var(--ink-2); font-size: 15px; flex: 1; margin-bottom: 16px; }
+        .svc .price { border-top: 1px solid var(--line); padding-top: 12px; font-size: 14px; color: var(--ink-3); }
+        .svc .price b { color: var(--ink); font-family: "Sora", sans-serif; font-size: 18px; }
+
+        /* Work */
+        .work { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .proj { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg); display: flex; flex-direction: column; }
+        .proj img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+        .proj div { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+        .proj h3 { font-size: 18px; margin-bottom: 6px; }
+        .proj p { color: var(--ink-2); font-size: 15px; flex: 1; margin-bottom: 14px; }
+        .proj a { font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 2px solid var(--accent); align-self: flex-start; }
+        .more { margin-top: 22px; color: var(--ink-2); }
+        .more a { font-weight: 600; }
+
+        /* Process */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+        .step { border-top: 2px solid var(--brand); padding-top: 20px; }
+        .step::before { counter-increment: s; content: "0" counter(s); font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); }
+        .step h3 { font-size: 19px; margin: 8px 0; }
+        .step p { color: var(--ink-2); font-size: 15px; }
+
+        /* About */
+        .about .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: center; }
+        .about img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; border: 6px solid var(--surface); box-shadow: 0 10px 30px rgba(0, 0, 0, .1); }
+        .about h2 { font-size: 30px; margin-bottom: 12px; }
+        .about p { color: var(--ink-2); margin-bottom: 10px; max-width: 640px; }
+
+        /* Contact */
+        .contact { background: var(--band); color: #f7f4ec; }
+        .contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+        .contact .eyebrow { color: var(--accent); }
+        .contact h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 14px; }
+        .contact .lead { color: #c9d6d3; font-size: 18px; margin-bottom: 26px; }
+        .mail { display: inline-flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 3px; }
+        .contact form { background: #f7f4ec; color: #102422; border-radius: 20px; padding: 28px; }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+        .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 10px; border: 1px solid #e3ddd0; background: #fff; color: #102422; }
+        .field textarea { min-height: 110px; resize: vertical; }
+        .contact form .btn { width: 100%; justify-content: center; background: #0f3d3a; color: #f7f4ec; }
+
+        footer { padding: 28px 0; font-size: 14px; color: var(--ink-3); }
+        footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+        footer a { text-decoration: none; }
+
+        @media (max-width: 980px) {
+            .grid4 { grid-template-columns: repeat(2, 1fr); }
+            .grid3 { grid-template-columns: 1fr 1fr; }
+            .steps { grid-template-columns: 1fr 1fr; }
+            .hero .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media (max-width: 680px) {
+            section { padding: 72px 0; }
+            .wrap { padding: 0 16px; }
+            .nav-links { display: none; }
+            .hero { padding: 48px 0 56px; }
+            .grid4, .grid3, .steps { grid-template-columns: 1fr; }
+            .about .wrap { grid-template-columns: 1fr; text-align: left; }
+            .about img { width: 140px; height: 140px; }
+            .check-card form { flex-direction: column; }
+            .promise ul { flex-direction: column; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="wrap">
+            <a href="#" class="logo">
+                <span class="logo-mark"><svg viewBox="0 0 18 18"><path d="M4 3h5a6 6 0 0 1 0 12H4z" fill="none" stroke="#e9b44c" stroke-width="2.4"/></svg></span>
+                DevMend
+            </a>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#work">Work</a>
+                <a href="#process">How it works</a>
+                <a href="#about">About</a>
+            </nav>
+            <a href="#contact" class="btn btn-main">Get a free check</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <div>
+                    <div class="pill"><i class="fas fa-circle-check"></i> Pay once you've seen the result</div>
+                    <h1>We mend slow, broken websites, and build <span>new ones that work</span>.</h1>
+                    <p>DevMend is a small independent studio. We speed up and fix business websites, build new
+                        sites and mobile apps, and automate the repetitive work that eats your week.</p>
+                    <div class="cta">
+                        <a href="#contact" class="btn btn-accent">Check my website for free <i class="fas fa-arrow-right"></i></a>
+                        <a href="#services" class="btn btn-ghost">See prices</a>
+                    </div>
+                </div>
+
+                <div class="check-card">
+                    <h3>Is your website losing customers?</h3>
+                    <p>Many of the small business sites we check score like this on Google's mobile speed test:</p>
+                    <div class="meter">
+                        <div class="bar"><i style="width:38%;background:#d9534f"></i></div><b>38/100</b>
+                        <div class="bar"><i style="width:62%;background:#e9b44c"></i></div><b>12s load</b>
+                    </div>
+                    <p style="margin-bottom:14px">Visitors on phones leave after about 3 seconds. Send us your link and
+                        we'll tell you exactly what's slowing it down, for free.</p>
+                    <form action="https://usebasin.com/f/55d14ca32347" method="POST">
+                        <input type="hidden" name="_subject" value="DevMend free website check">
+                        <input type="hidden" name="_next" value="https://hbnasir23.github.io/thank-you.html">
+                        <input type="url" name="website" placeholder="https://yourwebsite.com" required aria-label="Your website">
+                        <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+                        <button class="btn btn-main" type="submit">Check</button>
+                    </form>
+                    <small>We reply within 24 hours with what we found. No obligation.</small>
+                </div>
+            </div>
+        </section>
+
+        <div class="promise">
+            <div class="wrap">
+                <ul>
+                    <li><i class="fas fa-tag"></i> Fixed price, agreed upfront</li>
+                    <li><i class="fas fa-hand-holding-dollar"></i> Small fixes: pay once it's done</li>
+                    <li><i class="fas fa-bolt"></i> Most fixes in 2–3 days</li>
+                    <li><i class="fas fa-reply"></i> Replies within 24 hours</li>
+                </ul>
+            </div>
+        </div>
+
+        <section id="services">
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">Services</div>
+                    <h2>What we do</h2>
+                    <p>Starting prices in USD. We quote in your currency and confirm the exact price before any work starts.</p>
+                </div>
+                <div class="grid4">
+                    <div class="svc">
+                        <div class="ic"><i class="fas fa-gauge-high"></i></div>
+                        <h3>Speed &amp; fixes</h3>
+                        <p>Slow pages, broken layouts on phones, "Not secure" warnings, errors and plugin problems. WordPress, Wix, Squarespace, Shopify or custom.</p>
+                        <div class="price">From <b>$49</b></div>
+                    </div>
+                    <div class="svc">
+                        <div class="ic"><i class="fas fa-laptop-code"></i></div>
+                        <h3>New websites</h3>
+                        <p>Fast, mobile-first sites and redesigns, plus custom WordPress plugins and features. Built with Google search in mind.</p>
+                        <div class="price">From <b>$199</b></div>
+                    </div>
+                    <div class="svc">
+                        <div class="ic"><i class="fas fa-mobile-screen"></i></div>
+                        <h3>Mobile apps</h3>
+                        <p>Android and iOS apps in Flutter with bookings, logins, payments and admin dashboards on Firebase or Supabase.</p>
+                        <div class="price">From <b>$399</b></div>
+                    </div>
+                    <div class="svc">
+                        <div class="ic"><i class="fas fa-robot"></i></div>
+                        <h3>Automation &amp; AI</h3>
+                        <p>Python scripts, n8n workflows, data scraping, AI content and chat assistants that save hours every week.</p>
+                        <div class="price">From <b>$79</b></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="work">
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">Work</div>
+                    <h2>Things we've built</h2>
+                    <p>Live products you can open right now.</p>
+                </div>
+                <div class="grid3">
+                    <article class="proj">
+                        <img src="../images/work/rnp.png" alt="Remote Nurse Practitioners job board" loading="lazy">
+                        <div>
+                            <h3>Remote Nurse Practitioners</h3>
+                            <p>A niche job board with hundreds of live listings, search and filters. Next.js, Prisma, PostgreSQL.</p>
+                            <a href="https://remotenursepractitioners.com/" target="_blank" rel="noopener">Visit site ↗</a>
+                        </div>
+                    </article>
+                    <article class="proj">
+                        <img src="../images/work/seo.png" alt="SEONeuralyze" loading="lazy">
+                        <div>
+                            <h3>SEONeuralyze</h3>
+                            <p>An AI tool that finds pages on large sites competing for the same Google search. Python, SBERT, React.</p>
+                            <a href="https://seo-neuralyze-frontend.vercel.app/" target="_blank" rel="noopener">Visit site ↗</a>
+                        </div>
+                    </article>
+                    <article class="proj">
+                        <img src="../images/work/pneumo.png" alt="PneumoScan" loading="lazy">
+                        <div>
+                            <h3>PneumoScan</h3>
+                            <p>AI that combines chest X-rays with symptoms to flag pneumonia, with safety guardrails. Python, React.</p>
+                            <a href="https://pneumo-scan-theta.vercel.app/" target="_blank" rel="noopener">Visit site ↗</a>
+                        </div>
+                    </article>
+                </div>
+                <p class="more">Also mobile apps (AR furniture store, health monitoring, sign-language translation) and an
+                    automated WordPress blogging pipeline. <a href="https://hbnasir23.github.io/#work">See everything →</a></p>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">How it works</div>
+                    <h2>Simple from start to finish</h2>
+                </div>
+                <div class="steps">
+                    <div class="step"><h3>Send your link</h3><p>Tell us what's wrong or what you want built. A few lines is enough.</p></div>
+                    <div class="step"><h3>Free check &amp; quote</h3><p>Within 24 hours you get what we found, how we'd fix it, and a fixed price.</p></div>
+                    <div class="step"><h3>We do the work</h3><p>Regular updates while we work. For fixes, you see the before/after first.</p></div>
+                    <div class="step"><h3>Pay &amp; go live</h3><p>Pay once you're happy. We stay around for questions afterwards.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="wrap">
+                <img src="../images/haris-photo1.png" alt="Haris Bin Nasir, founder of DevMend">
+                <div>
+                    <div class="eyebrow">About</div>
+                    <h2>Hi, I'm Haris, the person behind DevMend.</h2>
+                    <p>I'm a software engineer working professionally with PHP, WordPress, Vue, React and Flutter. I
+                        started DevMend to help small businesses whose websites quietly lose them customers: too slow,
+                        broken on phones, or showing security warnings.</p>
+                    <p>When you work with DevMend, you work directly with me. No account managers, no hand-offs.</p>
+                    <p><a href="https://hbnasir23.github.io" style="font-weight:600">My full portfolio →</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="wrap">
+                <div>
+                    <div class="eyebrow">Contact</div>
+                    <h2>Tell us what needs fixing or building.</h2>
+                    <p class="lead">Free check and a fixed quote within 24 hours. No obligation.</p>
+                    <a class="mail" href="mailto:haris.softwaredev@gmail.com"><i class="fas fa-envelope"></i> haris.softwaredev@gmail.com</a>
+                </div>
+                <form action="https://usebasin.com/f/55d14ca32347" method="POST">
+                    <input type="hidden" name="_subject" value="DevMend project inquiry">
+                    <input type="hidden" name="_next" value="https://hbnasir23.github.io/thank-you.html">
+                    <div class="field"><label for="n">Name</label><input id="n" name="name" required></div>
+                    <div class="field"><label for="e">Email</label><input id="e" type="email" name="email" required></div>
+                    <div class="field"><label for="w">Website (if you have one)</label><input id="w" type="url" name="website" placeholder="https://"></div>
+                    <div class="field"><label for="s">What do you need?</label>
+                        <select id="s" name="service">
+                            <option>Fix or speed up my website</option>
+                            <option>New website</option>
+                            <option>Mobile app</option>
+                            <option>Automation / AI</option>
+                            <option>Something else</option>
+                        </select>
+                    </div>
+                    <div class="field"><label for="m">Details</label><textarea id="m" name="message" required></textarea></div>
+                    <button class="btn" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>&copy; 2026 DevMend</span>
+            <span><a href="../privacy-policy.html">Privacy</a> · <a href="../terms-of-use.html">Terms</a></span>
+        </div>
+    </footer>
+</body>
+
+</html>
