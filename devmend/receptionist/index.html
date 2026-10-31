@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist for Tradespeople | DevMend</title>
+    <meta name="description"
+        content="When you're on a job and can't pick up, an AI receptionist answers, takes the details and passes them to you. Talk to the demo in your browser.">
+    <meta property="og:title" content="AI receptionist for plumbers and heating engineers">
+    <meta property="og:description" content="Stuck on a job and can't answer? It picks up for you. Try the demo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f3d3a'/><path d='M9 10h6a6 6 0 0 1 0 12H9z' fill='none' stroke='%23e9b44c' stroke-width='3'/></svg>">
+    <style>
+        :root {
+            --bg: #f7f4ec;
+            --surface: #ffffff;
+            --ink: #102422;
+            --ink-2: #4b5b59;
+            --ink-3: #7d8a88;
+            --line: #e3ddd0;
+            --brand: #0f3d3a;
+            --brand-2: #175c56;
+            --accent: #e9b44c;
+            --accent-soft: #f7e7c2;
+            --band: #0f3d3a;
+            --danger: #c9453f;
+            --radius: 16px;
+            --max: 1100px;
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1716;
+                --surface: #13201f;
+                --ink: #eef3f2;
+                --ink-2: #b2c0be;
+                --ink-3: #82918f;
+                --line: #23312f;
+                --brand: #e9b44c;
+                --brand-2: #f0c66e;
+                --accent: #e9b44c;
+                --accent-soft: #2c2716;
+                --band: #163a36;
+                --danger: #e0645e;
+                color-scheme: dark;
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+        body { background: var(--bg); color: var(--ink); font: 16px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; }
+        h1, h2, h3, .logo { font-family: "Sora", "Inter", sans-serif; letter-spacing: -.02em; line-height: 1.15; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+        section { padding: 88px 0; }
+        .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-2); margin-bottom: 12px; }
+        .head { max-width: 620px; margin-bottom: 44px; }
+        .head h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 12px; }
+        .head p { color: var(--ink-2); font-size: 18px; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .15s ease; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn:disabled { opacity: .6; cursor: wait; transform: none; }
+        .btn-main { background: var(--brand); color: var(--bg); }
+        .btn-accent { background: var(--accent); color: #102422; }
+        .btn-end { background: var(--danger); color: #fff; }
+
+        .nav { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+        .nav .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; }
+        .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--band); display: grid; place-items: center; }
+        .logo-mark svg { width: 18px; height: 18px; }
+        .nav .btn { padding: 10px 18px; font-size: 14px; }
+
+        .hero { padding: 72px 0 80px; }
+        .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+        .pill { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); font-size: 14px; font-weight: 500; margin-bottom: 22px; }
+        .hero h1 { font-size: clamp(36px, 5vw, 58px); margin-bottom: 22px; }
+        .hero h1 span { color: var(--brand-2); }
+        .hero .lead { font-size: 19px; color: var(--ink-2); max-width: 520px; }
+
+        /* Demo phone card */
+        .demo { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 28px; box-shadow: 0 10px 40px rgba(16, 36, 34, .08); }
+        .demo-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+        .demo-ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; font-size: 18px; }
+        .demo h2 { font-size: 20px; }
+        .demo-status { font-size: 14px; color: var(--ink-3); }
+        .demo-status.live { color: var(--brand-2); font-weight: 600; }
+        .demo > p { color: var(--ink-2); font-size: 15px; margin-bottom: 14px; }
+        .try { list-style: none; font-size: 15px; margin-bottom: 18px; }
+        .try li { padding: 8px 12px; border-left: 3px solid var(--accent); margin-bottom: 8px; background: var(--bg); border-radius: 0 8px 8px 0; }
+        .level { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; margin-bottom: 14px; }
+        .level i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+        .transcript { height: 170px; overflow-y: auto; font-size: 14px; background: var(--bg); border-radius: 12px; padding: 12px; margin-bottom: 14px; }
+        .transcript p { margin-bottom: 8px; }
+        .transcript b { font-weight: 600; }
+        .demo .btn { width: 100%; }
+        .demo small { display: block; color: var(--ink-3); margin-top: 12px; font-size: 13px; line-height: 1.5; }
+        .demo-error { color: var(--danger); font-size: 14px; margin-bottom: 12px; }
+        [hidden] { display: none !important; }
+
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; }
+        .step { border-top: 2px solid var(--brand); padding-top: 20px; }
+        .step::before { counter-increment: s; content: "0" counter(s); font-family: "Sora", sans-serif; font-weight: 700; color: var(--accent); }
+        .step h3 { font-size: 19px; margin: 8px 0; }
+        .step p { color: var(--ink-2); font-size: 15px; }
+
+        .alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .box { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: var(--bg); }
+        .box h3 { font-size: 19px; margin-bottom: 14px; }
+        .box ul { list-style: none; }
+        .box li { display: flex; gap: 10px; margin-bottom: 10px; color: var(--ink-2); font-size: 15px; }
+        .box li i { color: var(--brand-2); margin-top: 5px; }
+
+        .price { max-width: 520px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px; }
+        .price .amount { font-family: "Sora", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; }
+        .price .amount span { font-size: 17px; font-weight: 500; color: var(--ink-3); }
+        .price p { color: var(--ink-2); margin: 10px 0 18px; }
+        .price ul { list-style: none; }
+        .price li { display: flex; gap: 10px; margin-bottom: 8px; font-size: 15px; }
+        .price li i { color: var(--brand-2); margin-top: 5px; }
+
+        .contact { background: var(--band); color: #f7f4ec; }
+        .contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+        .contact .eyebrow { color: var(--accent); }
+        .contact h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 14px; }
+        .contact .lead { color: #c9d6d3; font-size: 18px; }
+        .contact form { background: #f7f4ec; color: #102422; border-radius: 20px; padding: 28px; }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+        .field input { width: 100%; font: inherit; font-size: 15px; padding: 12px 14px; border-radius: 10px; border: 1px solid #e3ddd0; background: #fff; color: #102422; }
+        .contact form .btn { width: 100%; background: #0f3d3a; color: #f7f4ec; }
+
+        footer { padding: 28px 0; font-size: 14px; color: var(--ink-3); }
+        footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+        footer a { text-decoration: none; }
+
+        @media (max-width: 980px) {
+            .hero .wrap, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media (max-width: 680px) {
+            section { padding: 64px 0; }
+            .wrap { padding: 0 16px; }
+            .hero { padding: 40px 0 56px; }
+            .steps, .two { grid-template-columns: 1fr; }
+            .demo { padding: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="wrap">
+            <a href="../" class="logo">
+                <span class="logo-mark"><svg viewBox="0 0 18 18"><path d="M4 3h5a6 6 0 0 1 0 12H4z" fill="none" stroke="#e9b44c" stroke-width="2.4"/></svg></span>
+                DevMend
+            </a>
+            <a href="#start" class="btn btn-main">Get one</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <div>
+                    <div class="pill"><i class="fas fa-wrench"></i> For plumbers and heating engineers</div>
+                    <h1>Under a sink and your phone's ringing? <span>It answers for you.</span></h1>
+                    <p class="lead">When you can't pick up, an AI receptionist answers in your business's name, finds
+                        out what the customer needs, and passes you the details so you can call back. Don't take our
+                        word for it. Talk to it now.</p>
+                </div>
+
+                <div class="demo" id="demo">
+                    <div class="demo-top">
+                        <div class="demo-ic"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h2>Call the demo</h2>
+                            <div class="demo-status" id="status">Bright Star Plumbing and Heating (sample business)</div>
+                        </div>
+                    </div>
+
+                    <div id="intro">
+                        <p>Pretend you're a customer. Try saying:</p>
+                        <ul class="try">
+                            <li>"My boiler's stopped working and there's no hot water."</li>
+                            <li>"I've got water coming through the kitchen ceiling."</li>
+                            <li>"How much do you charge for a new tap?"</li>
+                        </ul>
+                    </div>
+
+                    <div id="live" hidden>
+                        <div class="level"><i id="level"></i></div>
+                        <div class="transcript" id="transcript" aria-live="polite"></div>
+                    </div>
+
+                    <p class="demo-error" id="error" hidden></p>
+                    <button class="btn btn-accent" id="callBtn" type="button"><i class="fas fa-microphone"></i> Talk to the AI receptionist</button>
+                    <small>Uses your microphone, in your browser. You'll be talking to an AI, and demo calls stop after
+                        2 minutes. Please don't give real personal details.</small>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">How it works</div>
+                    <h2>You keep your number. Nothing else changes.</h2>
+                </div>
+                <div class="steps">
+                    <div class="step"><h3>We set it up for you</h3><p>You tell us your services, your area and what counts as an emergency. We train it on that, under your business name.</p></div>
+                    <div class="step"><h3>Missed calls go to it</h3><p>Your phone rings as normal. If you don't answer, the call forwards to the receptionist. You stay in control.</p></div>
+                    <div class="step"><h3>You get the details</h3><p>After each call you get the customer's name, number, address and problem, so you know who to ring back first.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="alt">
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">What it does</div>
+                    <h2>A careful message-taker, not a salesperson.</h2>
+                </div>
+                <div class="two">
+                    <div class="box">
+                        <h3>It will</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Answer day or night, in your business's name</li>
+                            <li><i class="fas fa-check"></i> Ask what's wrong and how urgent it is</li>
+                            <li><i class="fas fa-check"></i> Take the name, number and address</li>
+                            <li><i class="fas fa-check"></i> Give basic safety advice you approve, like turning off the stopcock</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3>It won't</h3>
+                        <ul>
+                            <li><i class="fas fa-xmark"></i> Quote prices or promise a time</li>
+                            <li><i class="fas fa-xmark"></i> Pretend to be a person. If asked, it says it's an AI</li>
+                            <li><i class="fas fa-xmark"></i> Book anything without you agreeing to it first</li>
+                            <li><i class="fas fa-xmark"></i> Replace you. It just stops the call going to voicemail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <div class="head">
+                    <div class="eyebrow">Price</div>
+                    <h2>If it saves one job a month, it's paid for itself.</h2>
+                </div>
+                <div class="price">
+                    <div class="amount">$149 <span>/ month</span></div>
+                    <p>We confirm the price in your currency before anything starts.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> First 14 days free</li>
+                        <li><i class="fas fa-check"></i> No setup fee for our first customers</li>
+                        <li><i class="fas fa-check"></i> Cancel any time, no contract</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="start" class="contact">
+            <div class="wrap">
+                <div>
+                    <div class="eyebrow">Get started</div>
+                    <h2>Want to hear it with your business name?</h2>
+                    <p class="lead">Leave your details and we'll set up a free version for your business to try. You
+                        work directly with Haris, the engineer who builds it.</p>
+                </div>
+                <form action="https://usebasin.com/f/55d14ca32347" method="POST">
+                    <input type="hidden" name="_subject" value="AI receptionist inquiry">
+                    <input type="hidden" name="_next" value="https://hbnasir23.github.io/thank-you.html">
+                    <div class="field"><label for="n">Your name</label><input id="n" name="name" required></div>
+                    <div class="field"><label for="b">Business name</label><input id="b" name="business" required></div>
+                    <div class="field"><label for="p">Phone</label><input id="p" type="tel" name="phone" required></div>
+                    <div class="field"><label for="e">Email</label><input id="e" type="email" name="email" required></div>
+                    <button class="btn" type="submit">Set up my free version <i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>&copy; 2026 DevMend</span>
+            <span><a href="../../privacy-policy.html">Privacy</a> · <a href="../../terms-of-use.html">Terms</a></span>
+        </div>
+    </footer>
+
+    <script type="module">
+        const PUBLIC_KEY = "bdb87a82-f62d-4b8d-a64b-c913b06b924c"; // Vapi public key: safe in the browser
+        const ASSISTANT_ID = "440dcc6a-90bf-4ba8-8772-e76d20f8f134";
+        const SDK = "https://cdn.jsdelivr.net/npm/@vapi-ai/web@2.3.8/+esm";
+        const MAX_SECONDS = 120; // backstop so a forgotten tab can't drain credits
+
+        const $ = id => document.getElementById(id);
+        const btn = $("callBtn"), statusEl = $("status"), errorEl = $("error");
+        const idleStatus = statusEl.textContent;
+        const idleButton = btn.innerHTML;
+
+        let vapi = null, inCall = false, ticker = null, seconds = 0;
+
+        function showError(text) {
+            errorEl.textContent = text;
+            errorEl.hidden = false;
+        }
+
+        function reset() {
+            inCall = false;
+            clearInterval(ticker);
+            btn.disabled = false;
+            btn.className = "btn btn-accent";
+            btn.innerHTML = idleButton;
+            statusEl.textContent = idleStatus;
+            statusEl.classList.remove("live");
+            $("level").style.width = "0";
+            $("intro").hidden = false;
+            $("live").hidden = true;
+        }
+
+        function addLine(who, text) {
+            const box = $("transcript");
+            const line = document.createElement("p");
+            const name = document.createElement("b");
+            name.textContent = who + ": ";
+            line.append(name, text);
+            box.append(line);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        async function loadVapi() {
+            if (vapi) return vapi;
+            const mod = await import(SDK);
+            const Vapi = mod.default?.default || mod.default;
+            vapi = new Vapi(PUBLIC_KEY);
+
+            vapi.on("call-start", () => {
+                inCall = true;
+                seconds = 0;
+                btn.disabled = false;
+                btn.className = "btn btn-end";
+                btn.innerHTML = '<i class="fas fa-phone-slash"></i> End call';
+                statusEl.textContent = "On the call";
+                statusEl.classList.add("live");
+                $("intro").hidden = true;
+                $("live").hidden = false;
+                ticker = setInterval(() => {
+                    if (++seconds >= MAX_SECONDS) vapi.stop();
+                }, 1000);
+            });
+            vapi.on("call-end", reset);
+            vapi.on("volume-level", level => {
+                $("level").style.width = Math.min(100, level * 100) + "%";
+            });
+            vapi.on("message", m => {
+                if (m.type === "transcript" && m.transcriptType === "final") {
+                    addLine(m.role === "assistant" ? "Receptionist" : "You", m.transcript);
+                }
+            });
+            vapi.on("error", e => {
+                console.error(e);
+                showError("The call dropped. Please try again.");
+                reset();
+            });
+            return vapi;
+        }
+
+        btn.addEventListener("click", async () => {
+            if (inCall) {
+                vapi.stop();
+                return;
+            }
+            errorEl.hidden = true;
+            $("transcript").textContent = "";
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting…';
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true }).then(s => s.getTracks().forEach(t => t.stop()));
+            } catch (e) {
+                showError("We need your microphone for the demo. Allow it in your browser, then try again.");
+                reset();
+                return;
+            }
+            try {
+                await (await loadVapi()).start(ASSISTANT_ID);
+            } catch (e) {
+                console.error(e);
+                showError("We couldn't start the call. Please try again in a minute.");
+                reset();
+            }
+        });
+    </script>
+</body>
+
+</html>
