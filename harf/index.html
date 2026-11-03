@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARF | Urdu word hoodies</title>
+    <meta name="description" content="Oversized hoodies with one Urdu word and what it really means. Pick ours or write your own. Cash on delivery across Pakistan.">
+    <meta property="og:title" content="HARF | Wear your word">
+    <meta property="og:description" content="One Urdu word. What it really means. Pick yours.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231B1B1B'/><circle cx='16' cy='16' r='5' fill='%23E9B44C'/></svg>">
+    <style>
+        :root {
+            --bg: #EFE6D6;
+            --surface: #F7F1E6;
+            --ink: #1B1B1B;
+            --ink-2: #55504a;
+            --line: #d9cdb8;
+            --accent: #8B2E2E;
+            --gold: #E9B44C;
+            --dark: #1B1B1B;
+            --on-dark: #F3E9D2;
+            color-scheme: light;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #151515;
+                --surface: #1e1e1e;
+                --ink: #F3E9D2;
+                --ink-2: #b9b0a2;
+                --line: #2e2e2e;
+                --accent: #E9B44C;
+                --dark: #0d0d0d;
+                color-scheme: dark;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--ink); font: 16px/1.6 "Space Mono", monospace; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; }
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .ur { font-family: "Noto Nastaliq Urdu", serif; font-weight: 700; direction: rtl; }
+        .serif { font-family: "Instrument Serif", serif; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 26px; border-radius: 999px; border: 0; font: 700 14px "Space Mono", monospace; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; background: var(--ink); color: var(--bg); }
+        .btn.gold { background: var(--gold); color: #1B1B1B; }
+        .label { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-2); }
+
+        .nav { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+        .logo { display: flex; align-items: baseline; gap: 12px; text-decoration: none; }
+        .logo b { font: 30px "Archivo Black", sans-serif; letter-spacing: .16em; }
+        .logo span { font-size: 28px; color: var(--accent); }
+        .nav a.small { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+
+        .hero { padding: 64px 0 80px; text-align: center; }
+        .hero .ur { font-size: clamp(90px, 18vw, 190px); line-height: 1.6; }
+        .hero .meta { font-weight: 700; letter-spacing: .3em; margin-top: 24px; }
+        .hero .meta i { color: var(--accent); font-style: normal; font-weight: 400; margin-left: 10px; }
+        .hero h1 { font: italic clamp(34px, 5vw, 56px)/1.15 "Instrument Serif", serif; margin: 22px auto 30px; max-width: 760px; font-weight: 400; }
+        .hero .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+        section { padding: 80px 0; }
+        .head { margin-bottom: 40px; }
+        .head h2 { font: 400 clamp(36px, 5vw, 54px)/1.1 "Instrument Serif", serif; margin-top: 8px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+        .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 16px; text-align: left; cursor: pointer; font: inherit; color: inherit; transition: transform .15s; }
+        .card:hover { transform: translateY(-3px); }
+        .card svg { width: 100%; display: block; }
+        .card .name { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; }
+        .card .name b { font-size: 15px; letter-spacing: .12em; text-transform: uppercase; }
+        .card .name span { font-size: 22px; }
+        .card p { font: italic 18px/1.3 "Instrument Serif", serif; color: var(--ink-2); margin-top: 4px; }
+
+        .maker { background: var(--dark); color: var(--on-dark); }
+        .maker .label { color: #b9b0a2; }
+        .maker-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
+        .preview { position: relative; background: #2a2a2a; border-radius: 22px; padding: 26px; }
+        .preview .back { width: 100%; display: block; }
+        .preview .front { position: absolute; right: 18px; bottom: 18px; width: 26%; }
+        .views { position: absolute; left: 26px; bottom: 22px; font-size: 12px; letter-spacing: .2em; color: #b9b0a2; text-transform: uppercase; }
+        .field { margin-bottom: 18px; }
+        .field label { display: block; margin-bottom: 8px; }
+        .field input, .field select, .field textarea { width: 100%; font: 16px "Space Mono", monospace; padding: 14px 16px; border-radius: 12px; border: 1px solid #3a3a3a; background: #111; color: var(--on-dark); }
+        .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--gold); border-color: transparent; }
+        .big-input { font-size: 22px !important; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .chip { border: 1px solid #3a3a3a; background: none; color: var(--on-dark); border-radius: 999px; padding: 6px 12px; font: 13px "Space Mono", monospace; cursor: pointer; }
+        .chip:hover { border-color: var(--gold); }
+        .swatches { display: flex; gap: 10px; }
+        .swatch { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #3a3a3a; cursor: pointer; }
+        .swatch[aria-pressed="true"] { outline: 3px solid var(--gold); outline-offset: 3px; }
+        .note { font-size: 13px; color: #b9b0a2; margin-top: 8px; line-height: 1.5; }
+        .status { font-size: 14px; padding: 12px 14px; border-radius: 12px; background: #111; border-left: 3px solid var(--gold); margin-bottom: 18px; }
+        .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .price { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 18px; padding-top: 20px; border-top: 1px solid #3a3a3a; }
+        .price b { font: clamp(30px, 8vw, 40px) "Archivo Black", sans-serif; white-space: nowrap; }
+        .price span { font-size: 13px; color: #b9b0a2; text-align: right; }
+        .order { display: none; margin-top: 8px; }
+        .order.open { display: block; }
+        .maker .btn { width: 100%; }
+
+        .how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        .how div { border-top: 2px solid var(--ink); padding-top: 16px; }
+        .how b { display: block; font: 400 26px "Instrument Serif", serif; margin-bottom: 6px; }
+        .how p { color: var(--ink-2); font-size: 14px; }
+        .sizes { margin-top: 40px; width: 100%; border-collapse: collapse; font-size: 14px; }
+        .sizes th, .sizes td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+        .table-wrap { overflow-x: auto; }
+        footer { padding: 34px 0; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--line); }
+        footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+        @media (max-width: 900px) {
+            .maker-grid { grid-template-columns: 1fr; }
+            .how { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 560px) {
+            .wrap { padding: 0 16px; }
+            section { padding: 60px 0; }
+            .row2, .how { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="wrap nav">
+        <a class="logo" href="#"><b>HARF</b><span class="ur">حرف</span></a>
+        <a class="small" href="#make">Make yours →</a>
+    </header>
+
+    <main>
+        <section class="hero wrap">
+            <div class="ur">سکون</div>
+            <div class="meta">SUKOON <i>n.</i></div>
+            <h1>the peace you can't explain. One Urdu word, and what it really means, on an oversized hoodie.</h1>
+            <div class="cta">
+                <a class="btn" href="#make">Write your own word</a>
+                <a class="btn gold" href="#words">See the words</a>
+            </div>
+        </section>
+
+        <section id="words" class="wrap">
+            <div class="head">
+                <div class="label">The collection</div>
+                <h2>Pick a word that sounds like you.</h2>
+            </div>
+            <div class="grid" id="grid"></div>
+        </section>
+
+        <section id="make" class="maker">
+            <div class="wrap maker-grid">
+                <div class="preview">
+                    <div class="back" id="pvBack"></div>
+                    <div class="front" id="pvFront"></div>
+                    <div class="views">Back · Front</div>
+                </div>
+
+                <div>
+                    <div class="label">Make yours</div>
+                    <h2 class="serif" style="font-size:44px;font-weight:400;line-height:1.1;margin:8px 0 24px">Any word. Your meaning.</h2>
+
+                    <div class="field">
+                        <label class="label" for="word">Your word (English letters or Urdu)</label>
+                        <input class="big-input" id="word" maxlength="18" autocomplete="off" placeholder="e.g. sukoon or سکون">
+                        <div class="chips" id="chips"></div>
+                    </div>
+                    <div class="status" id="status"></div>
+                    <div class="field">
+                        <label class="label" for="def">What it means (you can change this)</label>
+                        <input id="def" maxlength="48">
+                    </div>
+                    <div class="row2">
+                        <div class="field">
+                            <span class="label" style="display:block;margin-bottom:8px">Colour</span>
+                            <div class="swatches" id="swatches"></div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="size">Size</label>
+                            <select id="size"><option>M</option><option selected>L</option><option>XL</option><option>XXL</option></select>
+                        </div>
+                    </div>
+
+                    <div class="price"><b>Rs 2,999</b><span>Cash on delivery<br>All Pakistan · free delivery</span></div>
+                    <button class="btn gold" type="button" id="orderBtn">Request this hoodie</button>
+
+                    <form class="order" id="order" action="https://usebasin.com/f/55d14ca32347" method="POST">
+                        <input type="hidden" name="_subject" value="HARF order request">
+                        <input type="hidden" name="_next" value="https://hbnasir23.github.io/thank-you.html">
+                        <input type="hidden" name="word" id="fWord">
+                        <input type="hidden" name="urdu" id="fUrdu">
+                        <input type="hidden" name="meaning" id="fDef">
+                        <input type="hidden" name="colour" id="fColour">
+                        <input type="hidden" name="size" id="fSize">
+                        <p class="note" style="margin:20px 0 16px">We check every word before printing and confirm your order on WhatsApp. Nothing is printed until you say yes.</p>
+                        <div class="field"><label class="label" for="n">Name</label><input id="n" name="name" required></div>
+                        <div class="field"><label class="label" for="w">WhatsApp number</label><input id="w" name="whatsapp" type="tel" required placeholder="03xx xxxxxxx"></div>
+                        <div class="row2">
+                            <div class="field"><label class="label" for="c">City</label><input id="c" name="city" required></div>
+                            <div class="field"><label class="label" for="a">Address</label><input id="a" name="address" required></div>
+                        </div>
+                        <button class="btn" type="submit" style="background:var(--on-dark);color:#1B1B1B">Send request</button>
+                    </form>
+                    <p class="note">Ready in 5 to 7 days. We don't print brand names, abuse, or political or religious slogans.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap">
+            <div class="head">
+                <div class="label">How it works</div>
+                <h2>Printed for you, not pulled off a shelf.</h2>
+            </div>
+            <div class="how">
+                <div><b>Pick a word</b><p>From our list, or write your own in English letters or Urdu.</p></div>
+                <div><b>We check it</b><p>We write it in proper Urdu and confirm with you on WhatsApp.</p></div>
+                <div><b>We print it</b><p>Heavy fleece, oversized fit, printed only for your order.</p></div>
+                <div><b>You pay at the door</b><p>Cash on delivery anywhere in Pakistan.</p></div>
+            </div>
+            <div class="table-wrap">
+                <table class="sizes">
+                    <tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Fits</th></tr>
+                    <tr><td>M</td><td>46</td><td>27</td><td>Slim build, oversized look</td></tr>
+                    <tr><td>L</td><td>48</td><td>28</td><td>Most people</td></tr>
+                    <tr><td>XL</td><td>50</td><td>29</td><td>Broad build</td></tr>
+                    <tr><td>XXL</td><td>52</td><td>30</td><td>Extra room</td></tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap"><span>&copy; 2026 HARF · Made in Pakistan</span><span>Questions? Send us a DM on Instagram.</span></div>
+    </footer>
+
+    <script src="words.js"></script>
+    <script src="art.js"></script>
+    <script>
+        const FEATURED = ["sukoon", "fitoor", "junoon", "awara", "zid", "befikar", "khamoshi", "sabr"];
+        const COLOR_NAMES = { black: "Black", cream: "Cream", olive: "Olive" };
+        const URDU = /[؀-ۿ]/;
+        const state = { color: "black", def: null };
+        const $ = id => document.getElementById(id);
+
+        // Collection grid
+        $("grid").innerHTML = FEATURED.map((k, i) => {
+            const w = HARF_WORDS[k], color = ["black", "cream", "olive", "black"][i % 4];
+            return `<button class="card" type="button" data-word="${k}" data-color="${color}">
+                ${harfHoodie("back", color, { roman: k, ...w }, "g" + i)}
+                <div class="name"><b>${k}</b><span class="ur">${w.ur}</span></div>
+                <p>${w.def}</p></button>`;
+        }).join("");
+        $("grid").addEventListener("click", e => {
+            const card = e.target.closest(".card");
+            if (!card) return;
+            state.color = card.dataset.color;
+            setWord(card.dataset.word);
+            $("make").scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Quick picks
+        $("chips").innerHTML = Object.keys(HARF_WORDS).slice(8, 20)
+            .map(k => `<button class="chip" type="button" data-word="${k}">${k}</button>`).join("");
+        $("chips").addEventListener("click", e => { if (e.target.dataset.word) setWord(e.target.dataset.word); });
+
+        // Colours
+        $("swatches").innerHTML = Object.keys(HARF_COLORS)
+            .map(c => `<button class="swatch" type="button" data-color="${c}" aria-label="${COLOR_NAMES[c]}" style="background:${HARF_COLORS[c].cloth}"></button>`).join("");
+        $("swatches").addEventListener("click", e => { if (e.target.dataset.color) { state.color = e.target.dataset.color; render(); } });
+
+        function current() {
+            const raw = $("word").value.trim();
+            const key = raw.toLowerCase();
+            if (URDU.test(raw)) {
+                const hit = Object.entries(HARF_WORDS).find(([, w]) => w.ur === raw);
+                return { roman: hit ? hit[0] : "", ur: raw, pos: hit ? hit[1].pos : "n.", known: !!hit, base: hit && hit[1].def };
+            }
+            const w = HARF_WORDS[key];
+            return { roman: key, ur: w ? w.ur : "", pos: w ? w.pos : "n.", known: !!w, base: w && w.def };
+        }
+
+        function render() {
+            const w = current();
+            if (state.def === null) $("def").value = w.base || "";
+            const word = { ...w, def: $("def").value.trim() || (w.roman || w.ur ? "your meaning goes here" : "") };
+            if (!w.roman && !w.ur) Object.assign(word, { roman: "sukoon", ur: "سکون", def: HARF_WORDS.sukoon.def });
+            $("pvBack").innerHTML = harfHoodie("back", state.color, word, "pb");
+            $("pvFront").innerHTML = harfHoodie("front", state.color, word, "pf");
+            for (const s of document.querySelectorAll(".swatch")) s.setAttribute("aria-pressed", s.dataset.color === state.color);
+            $("status").textContent = !w.roman && !w.ur ? "Type a word to see it on the hoodie."
+                : w.known ? "We've got this one. It's ready to print."
+                : w.ur ? "Nice. We'll check the spelling and confirm on WhatsApp before printing."
+                : "We'll write this in proper Urdu for you and show you before printing.";
+            $("fWord").value = w.roman; $("fUrdu").value = w.ur; $("fDef").value = word.def;
+            $("fColour").value = COLOR_NAMES[state.color]; $("fSize").value = $("size").value;
+        }
+
+        function setWord(k) { $("word").value = k; state.def = null; render(); }
+
+        $("word").addEventListener("input", () => { state.def = null; render(); });
+        $("def").addEventListener("input", () => { state.def = $("def").value; render(); });
+        $("size").addEventListener("change", render);
+        $("orderBtn").addEventListener("click", () => {
+            const w = current();
+            if (!w.roman && !w.ur) { $("word").focus(); return; }
+            $("order").classList.add("open");
+            $("orderBtn").style.display = "none";
+            $("n").focus();
+        });
+        document.fonts.ready.then(render);
+        render();
+    </script>
+</body>
+</html>
